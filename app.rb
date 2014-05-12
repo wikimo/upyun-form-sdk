@@ -23,7 +23,7 @@ get '/' do
 end
 
 get '/return' do 
-  p "params ==》 #{params}"
+  p "params -> #{params}"
   # @img_url =  URI.decode params['url']
   # p "url -- #{@img_url}"
   erb :return
