@@ -3,7 +3,6 @@ require 'sinatra/reloader'
 require 'securerandom'
 require 'base64'
 require 'json'
-require 'uri'
 
 get '/' do
 
@@ -23,8 +22,7 @@ get '/' do
 end
 
 get '/return' do 
-  p "params -> #{params}"
-  # @img_url =  URI.decode params['url']
-  # p "url -- #{@img_url}"
+
+  @img_url =  params[:url]
   erb :return
 end  
