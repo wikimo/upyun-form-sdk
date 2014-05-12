@@ -12,8 +12,8 @@ get '/' do
   @bucket = opts['bucket'] = 'devel'
   opts['save-key'] =  "/{year}{mon}/{random}{.suffix}"
   opts['expiration'] = Time.now.to_i + 600
-  opts['return-­url'] = 'http://upyun.form.xiguashe.com/return'
-  
+  opts['return-url'] = 'http://upyun.form.xiguashe.com/return'
+
   @policy = Base64.encode64(opts.to_json).gsub(/\n/,'')
   @sign =  Digest::MD5.hexdigest("#{@policy}&#{form_api_secret}")
 
