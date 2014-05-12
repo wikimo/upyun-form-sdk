@@ -23,5 +23,6 @@ end
 
 get '/return' do 
   @img_url =  params['url']
+  p "url -- #{@img_url}"
   erb :return
 end  
