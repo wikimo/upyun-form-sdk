@@ -34,7 +34,7 @@ post '/notify' do
 
   notify_file = File.join(File.dirname(__FILE__),'/public/notify.htm')
   File.open(notify_file,'a+') do |f|
-    f.puts "code ==> #{code} | message ==> #{message} | url ==> #{url} "
+    f.puts "code ==> #{code} | message ==> #{message} | url ==> #{url} <br/>"
   end
 
   'ok'
