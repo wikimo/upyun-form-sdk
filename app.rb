@@ -32,7 +32,8 @@ post '/notify' do
   message = params[:message]
   url = params[:url]
 
-  File.open('./public/notify.log') do |f|
+  notify_file = File.join(File.dirname(__FILE__),'/public/notify.htm')
+  File.open(notify_file) do |f|
     f.puts "code ==> #{code} | message ==> #{message} | url ==> #{url} "
   end
 
