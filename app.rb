@@ -28,15 +28,13 @@ get '/return' do
 end  
 
 post '/notify' do
+  code = params[:code]
+  message = params[:message]
+  url = params[:url]
 
   File.open('./public/notify.log') do |f|
-    
-    code = params[:code]
-    message = params[:message]
-    url = params[:url]
-
-    puts "code ==> #{code} | message ==> #{message} | url ==> #{url} "
+    f.puts "code ==> #{code} | message ==> #{message} | url ==> #{url} "
   end
-    
+
   'ok'
 end  
