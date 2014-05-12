@@ -1,0 +1,6 @@
+<form action="http://v0.api.upyun.com/<%= @bucket%>/" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="policy" value="<%= @policy %>">
+	<input type="hidden" name="signature" value="<%= @sign%>">
+	<input type="file" name="file" multiple="multiple"/>
+	<input type="submit">
+</form>
