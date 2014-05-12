@@ -13,7 +13,7 @@ get '/' do
   opts['save-key'] =  "/{year}{mon}/{random}{.suffix}"
   opts['expiration'] = Time.now.to_i + 600
   opts['return-url'] = 'http://upyun.form.xiguashe.com/return'
-
+  opts['notify-url'] = 'http://upyun.form.xiguashe.com/notify'
   @policy = Base64.encode64(opts.to_json).gsub(/\n/,'')
   @sign =  Digest::MD5.hexdigest("#{@policy}&#{form_api_secret}")
 
@@ -25,4 +25,18 @@ get '/return' do
 
   @img_url =  params[:url]
   erb :return
+end  
+
+post '/notify' do
+
+  File.open('./public/notify.log') do |f|
+    
+    code = params[:code]
+    message = params[:message]
+    url = params[:url]
+
+    puts "code ==> #{code} | message ==> #{message} | url ==> #{url} "
+  end
+    
+  'ok'
 end  
