@@ -1,3 +1,3 @@
 #Upyun Form SDK
 
-upyun form sdk with sinatra
+upyun form sdk with sinatra demo
